@@ -1,0 +1,236 @@
+1.
+set.seed(862)
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.02,
+             max_depth = 8, 
+             subsample = 0.9,
+             colsample_bytree = 0.9,
+             num_class = 38
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 10000,
+                 verbose = 1,
+                 early.stop.round = 40,
+                 watchlist = watchlist
+)
+
+val-mlogloss:1.006729
+train-mlogloss:0.584172
+File name: xgb_1
+Kaggle Logloss: 1.02836
+
+2.
+set.seed(862)
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.02,
+             max_depth = 10, 
+             subsample = 0.7,
+             colsample_bytree = 0.7,
+             num_class = 38
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 10000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss:0.999254
+train-mlogloss:0.563737
+File name: xgb_2
+Kaggle Logloss: 1.02128
+
+3.
+set.seed(862)
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.015,
+             max_depth = 10, 
+             subsample = 0.7,
+             colsample_bytree = 0.7,
+             num_class = 38
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 10000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 0.998266
+train-mlogloss: 0.558021
+File name: xgb_3
+Kaggle Logloss: 1.02065
+
+4.
+set.seed(862)
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.01,
+             max_depth = 10, 
+             subsample = 0.8,
+             colsample_bytree = 0.8,
+             num_class = 38
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 0.998266
+train-mlogloss: 0.558021
+File name: xgb_4
+Kaggle Logloss:1.02708
+
+5. 
+the same parameters as 3, but CV size increases to be 15000
+val-mlogloss: 0.998266
+train-mlogloss: 0.558021
+File name: xgb_5
+Kaggle Logloss:1.02708
+
+6.
+cv size:20000
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.03,
+             max_depth = 12, 
+             subsample = 0.6,
+             colsample_bytree = 0.6,
+             num_class = 38,
+             min_child_weight = 5
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)            watchlist = watchlist
+)
+
+val-mlogloss: 0.993426
+train-mlogloss: 0.668284
+File name: xgb_6
+Kaggle Logloss: 1.00777
+
+
+7.
+seed 14
+cv 10000
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.02,
+             max_depth = 12, 
+             subsample = 0.5,
+             colsample_bytree = 0.5,
+             num_class = 38,
+             min_child_weight = 1
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 0.997118
+train-mlogloss: 0.521168
+File name: xgb_7
+Kaggle Logloss: 0.97729
+
+8.
+seed 14
+cv 20000
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.02,
+             max_depth = 15, 
+             subsample = 0.6,
+             colsample_bytree = 0.5,
+             num_class = 38,
+             min_child_weight = 5
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 0.991115
+train-mlogloss: 0.608445
+File name: xgb_8
+Kaggle Logloss: 0.96916
+
+9.
+seed 14
+cv 20000
+
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.01,
+             max_depth = 15, 
+             subsample = 0.6,
+             colsample_bytree = 0.5,
+             num_class = 38,
+             min_child_weight = 10
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 1,
+                 early.stop.round = 50,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 0.992147
+train-mlogloss: 0.693054
+File name: xgb_9
+Kaggle Logloss: 
+
+10.
+
+seed 14
+cv 20000
+
+param = list(objective = "multi:softprob",
+             eval_metric = "mlogloss",
+             eta = 0.015,
+             max_depth = 15, 
+             subsample = 0.6,
+             colsample_bytree = 0.5,
+             num_class = 38,
+             min_child_weight = 5
+)
+
+xgb <- xgb.train(params = param,
+                 data = d_train,
+                 nrounds = 100000,
+                 verbose = 10,
+                 early.stop.round = 100,
+                 watchlist = watchlist
+)
+
+val-mlogloss: 
+train-mlogloss: 
+File name: xgb_10
+Kaggle Logloss: 
